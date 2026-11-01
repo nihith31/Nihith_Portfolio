@@ -17,7 +17,7 @@ type Key = "feature" | "reach" | "impact" | "confidence" | "effort" | "score";
 
 const score = (r: RiceRow) => (r.reach * r.impact * (r.confidence / 100)) / r.effort;
 
-export function RiceTable({ rows }: { rows: RiceRow[] }) {
+export function RiceTableClient({ rows }: { rows: RiceRow[] }) {
   const [sort, setSort] = useState<Key>("score");
   const [asc, setAsc] = useState(false);
 

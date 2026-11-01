@@ -1,0 +1,155 @@
+---
+title: "43 user stories, and the ones I refused to build"
+subtitle: "Prioritisation and specification for Sakhi — translating validated needs into a defensible MVP scope using RICE, MoSCoW and an explicit not-building list."
+summary: "How I scoped the Sakhi MVP: RICE scoring at feature level, MoSCoW at module level, and a YAGNI list that cut four features on principle rather than effort."
+project: "Sakhi AI"
+discipline: "Prioritisation & Spec"
+role: "Product Manager (end-to-end)"
+timeline: "10 weeks · 5 sprints · 2025"
+order: 2
+featured: true
+skills: ["RICE", "MoSCoW", "PRD", "Backlog", "Scope control"]
+metrics:
+  - label: "User stories written"
+    value: "43"
+    note: "Across 6 epics, each with acceptance criteria"
+  - label: "Modules in MVP"
+    value: "2 of 6"
+    note: "Chatbot and Symptom Tracker only"
+  - label: "Features cut outright"
+    value: "4"
+    note: "Documented with reasoning, not silently dropped"
+---
+
+<Section eyebrow="The problem">
+
+## Everything was important, which meant nothing was
+
+Discovery produced seven design principles and a long list of things women needed. Chatbot, symptom tracking, meal planning, lab report decoding, pre-consultation summaries, peer community. Every one of them traced back to a real researched pain point. Every one of them was defensible.
+
+That is the actual hard part of product management. Not finding good ideas — finding which good ideas to refuse, and being able to explain why.
+
+I used two frameworks at two different altitudes, because they answer different questions.
+
+<Callout type="note" title="Why two frameworks">
+**RICE** answers "which individual feature gives the most value per unit of effort?" It is precise but narrow — it cannot tell you whether a whole module belongs in the MVP.
+
+**MoSCoW** answers "which modules ship in which phase?" It handles dependency and sequencing, which RICE ignores entirely.
+
+Used alone, RICE ships a bag of disconnected high-scoring features. MoSCoW alone has no way to settle arguments inside a module.
+</Callout>
+
+</Section>
+
+<Section eyebrow="Feature level">
+
+## RICE scoring
+
+<RiceTable data="sakhi" />
+
+Two results are worth sitting with.
+
+**Lab OCR scored 5.25 — an order of magnitude below everything else.** It was the feature I was most emotionally attached to, because Kavitha's story about being unable to read her own blood report was the most vivid thing in my research. The score says the effort is eight times the next-highest and my confidence is only 70%, because extraction accuracy across the formats of dozens of Indian diagnostic labs is genuinely unproven. Emotional attachment is not a reason to put an unvalidated OCR pipeline in a ten-week MVP.
+
+**Red-flag detection scored 40.0, and I would have shipped it at 4.0.** An AI health companion that cannot recognise severe abdominal pain or heavy bleeding and tell a woman to see a doctor is not a reduced product — it is an unsafe one. Some features are not subject to prioritisation. The score was a confirmation, not a decision.
+
+<DecisionCard
+  decision="Ship voice input in Hindi and English only, not Telugu, in the MVP"
+  rationale="Voice is the entire zero-literacy premise, so it could not be deferred — but three languages tripled the prompt-tuning and testing surface inside a 10-week build. Two languages proved the mechanism."
+  tradeoff="Lakshmi, my primary persona, is a Telugu speaker. The MVP could not fully serve the user I designed it around. Telugu moved to the immediate next phase."
+/>
+
+</Section>
+
+<Section eyebrow="Module level">
+
+## MoSCoW
+
+<MoscowBoard data="sakhi" />
+
+<Callout type="warning" title="A tension I had to resolve">
+The budget meal filter scored highest on RICE at 56.7, yet the Meal Planner module it belongs to sits at Should-Have.
+
+That is RICE and MoSCoW disagreeing, and it is the case for using both. The filter is cheap and valuable in isolation, but it is a filter on top of a meal generation engine that does not exist, and the plans it would filter personalise against symptom data the tracker has not collected yet. A high-scoring feature inside an unbuilt module is not a high-scoring feature. Sequencing beat score.
+</Callout>
+
+</Section>
+
+<Section eyebrow="Specification">
+
+## The backlog
+
+The MoSCoW call became 43 user stories across 6 epics, mapped to a 5-sprint, 10-week release plan. Every story carries acceptance criteria in Given/When/Then form — a habit from my QA work, where I learned exactly how much a vague acceptance criterion costs a team mid-sprint.
+
+| Sprint | Goal | Working increment |
+| --- | --- | --- |
+| 1 | Supabase schemas, FastAPI scaffold, Expo init, visual language selection | Welcome and language screens wired to Supabase |
+| 2 | Llama-3.1 connected, elder-sister system prompts, voice input and audio readout | Working conversational AI chat screen |
+| 3 | Tap-only symptom tracker, AsyncStorage background sync engine | Offline symptom logging with auto-sync on reconnect |
+| 4 | FastAPI meal generator, weekly plan views, PDF grocery export | 7-day regional diet screen |
+| 5 | OCR parser, EAS Android build, APK landing page | Production APK with lab report analytics |
+
+A sample story, written for Lakshmi:
+
+> **As a rural user with low literacy,** I want to talk to Sakhi in simple spoken Telugu **so that** I can understand PCOS without reading complex medical terms.
+>
+> **Accepts when:** onboarding opens with visual language buttons; the AI avoids clinical English jargon, explaining "irregular cycle" as "monthly date changing"; the tone is warm and non-judgmental throughout.
+
+That third criterion is the one I care about. "Tone is warm and non-judgmental" is hard to test and easy to leave out of a spec. It is also the entire product. A clinically accurate chatbot that makes a woman feel judged has failed at the only job that mattered.
+
+</Section>
+
+<Section eyebrow="Scope control">
+
+## What I refused to build
+
+Most MVP scope documents list what is in. The more useful list is what is out, and why — because that is where a team's principles either hold or quietly collapse.
+
+<Grid cols="2">
+<Callout type="note" title="Community forums">
+Moderation is complex, privacy risk is real, and public menstrual health discussion carries severe stigma for this user group. Shipping an unmoderated space for women whose central fear is being found out would have been actively harmful.
+</Callout>
+<Callout type="note" title="Wearable integration">
+Target users cannot afford smartwatches or fitness bands. An integration serving zero percent of the intended users is engineering effort spent on a demo.
+</Callout>
+<Callout type="note" title="Paid doctor consultations">
+Assumes financial access to private healthcare that this demographic does not have. It would have quietly converted a free product into one with a paywall at the moment of greatest need.
+</Callout>
+<Callout type="note" title="Gamification, streaks and badges">
+Cut on principle. Streaks and badges are condescending to women managing real daily survival alongside a chronic condition. Breaking a 14-day logging streak should not be another thing she has failed at.
+</Callout>
+</Grid>
+
+<Pull>
+The gamification cut is the one I would defend hardest. Every engagement playbook says add streaks. The research said this user already carries enough shame.
+</Pull>
+
+</Section>
+
+<Section eyebrow="Measurement">
+
+## How I would know it worked
+
+Sakhi was specified but not shipped, so these are **target metrics with defined instrumentation**, not results. Defining them before the build is the point — a success criterion invented after launch is a rationalisation.
+
+<MetricGrid>
+<Metric value="70%" label="Chatbot session completion" note="Conversations reaching a resolved answer rather than abandonment" />
+<Metric value="50%" label="Weekly active logging" note="Users logging symptoms for 2+ consecutive weeks" />
+<Metric value="40%" label="60-day cohort retention" note="The real test of habit formation" />
+</MetricGrid>
+
+The analytics schema specified the events that make these measurable, including `symptom_logged_offline` with queue size and `offline_sync_completed` with sync duration — because in rural deployment the offline path is the primary path, and an analytics plan that only fires on a live connection would have measured the wrong users entirely.
+
+</Section>
+
+<Section eyebrow="Reflection">
+
+## What I would do differently
+
+**I scored RICE on my own.** Reach, impact and confidence were my estimates, unchallenged by anyone. That makes the numbers internally consistent and externally unverified — the framework produced precision, not accuracy. With a real team I would have scored independently and compared, because the disagreements are the actual signal.
+
+**My effort estimates had no engineering input.** I rated Lab OCR at 8 and the budget filter at 1 from intuition. A developer would likely have corrected both. The ratio probably holds; the absolute numbers I would not defend.
+
+**I deferred the Telugu voice module, and my primary persona speaks Telugu.** The scope call was right for a ten-week build, but it means the MVP could not have been tested with Lakshmi. If I ran this again I would cut a different module and keep Telugu, because an MVP you cannot validate with your primary user is not a minimum viable product.
+
+</Section>

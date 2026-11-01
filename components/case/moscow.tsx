@@ -20,7 +20,7 @@ const tierLabel: Record<MoscowItem["tier"], string> = {
   "Won't": "Won't have — cut",
 };
 
-export function MoscowBoard({ items }: { items: MoscowItem[] }) {
+export function MoscowBoardView({ items }: { items: MoscowItem[] }) {
   const tiers: MoscowItem["tier"][] = ["Must", "Should", "Could", "Won't"];
   return (
     <div className="my-8 space-y-5">

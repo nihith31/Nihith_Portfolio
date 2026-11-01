@@ -9,8 +9,7 @@ import {
   Pull,
   Section,
 } from "@/components/case/blocks";
-import { RiceTable } from "@/components/case/rice-table";
-import { MoscowBoard } from "@/components/case/moscow";
+import { RiceTable, MoscowBoard } from "@/components/case/data-blocks";
 import { ArtifactFrame } from "@/components/case/artifact-frame";
 
 export const mdxComponents: MDXComponents = {

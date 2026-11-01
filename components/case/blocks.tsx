@@ -150,12 +150,12 @@ export function Persona({
   );
 }
 
-export function Grid({ cols = 2, children }: { cols?: 2 | 3; children: React.ReactNode }) {
+export function Grid({ cols = "2", children }: { cols?: "2" | "3"; children: React.ReactNode }) {
   return (
     <div
       className={cn(
         "my-6 grid gap-3",
-        cols === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3",
+        cols === "3" ? "sm:grid-cols-3" : "sm:grid-cols-2",
       )}
     >
       {children}
