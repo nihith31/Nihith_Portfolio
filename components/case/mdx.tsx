@@ -15,12 +15,12 @@ import { ArtifactFrame } from "@/components/case/artifact-frame";
 export const mdxComponents: MDXComponents = {
   h2: (p) => (
     <h2
-      className="mt-12 scroll-mt-24 text-2xl font-semibold tracking-tight text-fg"
+      className="mt-12 scroll-mt-24 font-serif text-[clamp(1.85rem,2.6vw,2.4rem)] leading-tight tracking-tight text-fg"
       {...p}
     />
   ),
   h3: (p) => (
-    <h3 className="mt-8 scroll-mt-24 text-lg font-semibold text-fg" {...p} />
+    <h3 className="mt-8 scroll-mt-24 font-serif text-[clamp(1.35rem,1.8vw,1.6rem)] leading-snug text-fg" {...p} />
   ),
   h4: (p) => <h4 className="mt-6 font-semibold text-fg" {...p} />,
   p: (p) => <p className="mt-4 leading-[1.75] text-fg-muted" {...p} />,

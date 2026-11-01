@@ -17,7 +17,7 @@ export function Metric({
   note?: string;
 }) {
   return (
-    <div className="rounded-lg border border-border bg-card p-5">
+    <div className="rounded-lg border border-border border-t-2 border-t-accent bg-card p-5">
       <div className="font-mono text-2xl font-semibold tracking-tight text-fg">
         {value}
       </div>
@@ -133,7 +133,7 @@ export function Persona({
 }) {
   return (
     <div className="rounded-lg border border-border bg-card p-5">
-      <div className="font-medium text-fg">{name}</div>
+      <div className="font-serif text-xl text-accent">{name}</div>
       <p className="mt-1.5 text-sm leading-relaxed text-fg-muted">{profile}</p>
       {quote && (
         <p className="mt-3 border-l-2 border-accent/40 pl-3 text-sm italic leading-relaxed text-fg-muted">

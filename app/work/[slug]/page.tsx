@@ -30,7 +30,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
   const next = all[idx + 1] ?? all[0];
 
   return (
-    <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
+    <article className="mx-auto max-w-3xl px-5 pb-16 pt-8 sm:px-6 sm:pb-20 sm:pt-12">
       <Link
         href="/work"
         className="inline-flex items-center gap-1.5 text-sm text-fg-muted transition-colors hover:text-fg"
@@ -39,13 +39,15 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
       </Link>
 
       <header className="mt-6 border-b border-border pb-8">
-        <div className="font-mono text-xs uppercase tracking-widest text-accent">
+        <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
           {cs.project} · {cs.discipline}
         </div>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight text-fg sm:text-4xl">
+        <h1 className="mt-4 font-serif text-[clamp(2.6rem,7vw,4.25rem)] leading-[1.0] tracking-[-0.025em] text-fg">
           {cs.title}
         </h1>
-        <p className="mt-3 text-lg leading-relaxed text-fg-muted">{cs.subtitle}</p>
+        <p className="mt-5 max-w-2xl font-serif text-[clamp(1.25rem,2vw,1.6rem)] leading-[1.35] text-fg-muted">
+          {cs.subtitle}
+        </p>
 
         <dl className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
           <div>
@@ -71,7 +73,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
         {cs.metrics.length > 0 && (
           <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
             {cs.metrics.map((m) => (
-              <div key={m.label} className="rounded-lg border border-border bg-card p-4">
+              <div key={m.label} className="rounded-lg border border-border border-t-2 border-t-accent bg-card p-4">
                 <div className="font-mono text-xl font-semibold tracking-tight text-fg">
                   {m.value}
                 </div>
@@ -100,7 +102,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
           </div>
           <Link
             href={`/work/${next.slug}`}
-            className="mt-2 block text-xl font-semibold tracking-tight text-fg transition-colors hover:text-accent"
+            className="mt-2 block font-serif text-2xl leading-tight tracking-tight text-fg transition-colors hover:text-accent"
           >
             {next.title}
           </Link>

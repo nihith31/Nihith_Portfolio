@@ -1,21 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 
+/**
+ * Icon visibility is driven by the `dark` class on <html>, so there is no React
+ * state to hydrate and no flash of the wrong icon on first paint.
+ */
 export function ThemeToggle() {
-  const [mounted, setMounted] = useState(false);
-  const [dark, setDark] = useState(true);
-
-  useEffect(() => {
-    setMounted(true);
-    setDark(document.documentElement.classList.contains("dark"));
-  }, []);
-
   function toggle() {
-    const next = !dark;
-    setDark(next);
-    document.documentElement.classList.toggle("dark", next);
+    const root = document.documentElement;
+    const next = !root.classList.contains("dark");
+    root.classList.toggle("dark", next);
     try {
       localStorage.setItem("theme", next ? "dark" : "light");
     } catch {}
@@ -24,10 +19,11 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggle}
-      aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+      aria-label="Toggle colour theme"
       className="grid size-9 place-items-center rounded-md border border-border text-fg-muted transition-colors hover:bg-bg-subtle hover:text-fg"
     >
-      {mounted && dark ? <Sun className="size-4" /> : <Moon className="size-4" />}
+      <Sun className="hidden size-4 dark:block" />
+      <Moon className="size-4 dark:hidden" />
     </button>
   );
 }
