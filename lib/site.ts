@@ -1,6 +1,6 @@
 export const site = {
   name: "Nihith Konakalla",
-  role: "Associate Product Manager",
+  role: "Product Management · AI Products",
   tagline:
     "I spent 18 months in the part of the product lifecycle where requirements meet reality. Now I write the requirements.",
   summary:

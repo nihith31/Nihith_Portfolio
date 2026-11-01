@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { ArrowLeft } from "lucide-react";
 import { getAllCaseStudies, getCaseStudy, getCaseStudySlugs } from "@/lib/content";
 import { mdxComponents } from "@/components/case/mdx";
@@ -85,7 +86,11 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
       </header>
 
       <div className="mt-2">
-        <MDXRemote source={cs.body} components={mdxComponents} />
+        <MDXRemote
+          source={cs.body}
+          components={mdxComponents}
+          options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+        />
       </div>
 
       {next && next.slug !== cs.slug && (
