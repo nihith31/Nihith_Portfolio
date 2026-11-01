@@ -1,0 +1,129 @@
+---
+title: "Designing for a user who cannot read your app"
+subtitle: "Discovery and problem definition for an AI health companion serving low-literacy women with PCOS in rural India."
+summary: "Empathy research, persona development and problem framing for Sakhi — an AI PCOS companion built for women excluded by every existing health app."
+project: "Sakhi AI"
+discipline: "Discovery & Definition"
+role: "Product Manager (end-to-end)"
+timeline: "10 weeks · 2025"
+order: 1
+featured: true
+skills: ["User research", "JTBD", "Personas", "Problem framing"]
+metrics:
+  - label: "Addressable users"
+    value: "~42M"
+    note: "Indian women of reproductive age affected by PCOS"
+  - label: "Personas defined"
+    value: "3"
+    note: "Grounded in contextual inquiry and JTBD interviews"
+  - label: "Design principles"
+    value: "7"
+    note: "Each traced to a specific researched barrier"
+---
+
+<Section eyebrow="Context">
+
+## A condition one in five women has, and most cannot name
+
+PCOS — Polycystic Ovary Syndrome — affects roughly **one in five Indian women** of reproductive age. It disrupts menstrual cycles, causes weight gain, acne, facial hair and infertility, and is manageable with sustained lifestyle change and monitoring.
+
+The digital health market has answered this with apps like Flo, Clue and HealthifyMe. Every one of them assumes the user reads English, navigates an app fluently, owns her own phone, has reliable data, and can pay a subscription.
+
+I wanted to understand the women that set of assumptions leaves out.
+
+</Section>
+
+<Section eyebrow="Research">
+
+## What I did
+
+I ran three streams of research before writing a single requirement.
+
+**Secondary research** into PCOS prevalence and awareness in low-income and rural Indian populations, drawn from FOGSI clinical practice points on PCOS and lifestyle modification, obesity, and infertility.
+
+**Contextual inquiry** into how underprivileged women in semi-urban and rural India actually use smartphones — which turned out to be the single most consequential input into the product.
+
+**Jobs-to-be-Done interviews** structured around what these women were trying to accomplish, not which features they wanted.
+
+<Callout type="insight" title="The finding that reframed the product">
+Target users do not own phones. They share a family Android device, usually available in the evening when a husband returns from work. Data is metered. Storage is nearly full. App experience beyond WhatsApp and YouTube is close to zero.
+
+Every assumption behind a conventional health app — daily engagement, push notifications, private sessions, always-on connectivity — fails against that reality.
+</Callout>
+
+## Who I was building for
+
+<Grid cols={3}>
+<Persona
+  name="Lakshmi, 24"
+  profile="Rural Telangana. Telugu-speaking, 8th-grade education, agricultural labourer. Uses her husband's phone in the evenings."
+  quote="I missed my period for three months — is it because I did something wrong?"
+  need="To understand why her cycle is irregular, in her own language, with no medical jargon."
+/>
+<Persona
+  name="Sunita, 29"
+  profile="Urban slum, Delhi. Hindi-speaking, no formal education, domestic worker, owns a low-end Android phone."
+  quote="How could I buy expensive foreign food?"
+  need="PCOS diet advice using the dal, roti and seasonal vegetables she already buys."
+/>
+<Persona
+  name="Kavitha, 21"
+  profile="Semi-urban Andhra Pradesh. Telugu-speaking, left school after 10th grade, factory worker."
+  quote="The report is full of English numbers I cannot read."
+  need="Someone to explain what LH and FSH mean for her body."
+/>
+</Grid>
+
+## The empathy map that changed my mind
+
+I built a full empathy map for Lakshmi in the Nielsen Norman quadrant format. The **Thinks** quadrant is where the product brief actually came from:
+
+<Pull cite="Empathy map — Lakshmi, 24, rural Telangana">
+If my husband finds out I have a disease, he might leave me or take another wife.
+</Pull>
+
+That is not a feature request. It is a privacy requirement, and it is the reason the product later shipped generic push notification copy and a one-tap session timeout. A notification reading "Time to log your period symptoms" on a shared family phone is not a convenience problem. It is a safety problem.
+
+</Section>
+
+<Section eyebrow="Synthesis">
+
+## The barriers, and what each one costs
+
+| Barrier | Product consequence |
+| --- | --- |
+| Low or no literacy | Cannot read English medical terms. Even Hindi and Telugu text must be simple and conversational. |
+| No specialist access | Gynaecologists and endocrinologists are unaffordable or geographically out of reach. |
+| Social stigma | Facial hair, weight gain and infertility are sources of shame. Women suffer silently. |
+| Limited digital literacy | Multi-menu interfaces and form fields are intimidating and unusable. |
+| Economic constraint | No disposable income for subscriptions, premium tiers or repeat consultations. |
+| Unreliable connectivity | Apps requiring constant internet fail in rural and semi-urban zones. |
+| Western-centric advice | Quinoa, avocado and gym memberships are irrelevant to women cooking with ragi and walking to fetch water. |
+
+## Problem statement
+
+> Underprivileged and uneducated Indian women suffering from PCOS need a free, multilingual, extremely simple AI health companion that explains their condition in plain, stigma-free language, tracks their symptoms without requiring literacy, provides meal plans using ingredients they already have in their kitchens, and helps them understand lab reports they cannot read — because every existing solution assumes English literacy, digital fluency, and financial access to healthcare that these women do not have.
+
+## Seven design principles
+
+I turned each researched barrier into a constraint the product had to satisfy. These governed every later prioritisation call.
+
+1. **Assume zero literacy.** Conversational language, no medical jargon, design for users who may struggle to read at all.
+2. **Speak her language.** Hindi and Telugu are primary. English is secondary. Not translations — the default.
+3. **Radical simplicity.** Every screen usable by someone who has never used an app beyond WhatsApp.
+4. **Culturally grounded.** Ragi, millets, dal, seasonal sabzi. "Exercise" means walking and housework, not a gym.
+5. **Remove shame.** PCOS is a medical condition, not a personal failing. Every interaction normalises symptoms.
+6. **Completely free.** No premium tier, no paywall. These users have zero disposable income for apps.
+7. **Work offline.** Connectivity is a luxury. Core features must work without internet.
+
+</Section>
+
+<Section eyebrow="Reflection">
+
+## What I would do differently
+
+**My research was thin on primary data.** The contextual inquiry and JTBD scripts were real, but the sample was small and geographically narrow. A production version of this work needs structured interviews across at least three states before I would trust the personas to carry an MVP scope decision.
+
+**I validated the problem with women, but not with ASHA workers.** The entire distribution strategy depends on community health workers recommending the app. I treated that as an assumption and documented it as one — but I should have tested it during discovery, not after. If ASHA workers will not adopt it, the product has no path to its users regardless of how good it is.
+
+</Section>
