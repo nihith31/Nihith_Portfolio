@@ -10,8 +10,16 @@ export const site = {
   location: "Jangareddygudem, Andhra Pradesh, India",
   linkedin: "https://www.linkedin.com/in/nihith-konakalla-89004821a/",
   github: "https://github.com/nihith31",
-  url: "https://nihith.vercel.app",
+  url: "https://nihithkonakalla.vercel.app",
   resumePath: "/Nihith_Konakalla_Resume.pdf",
+} as const;
+
+export const sakhi = {
+  url: "https://trysakhiai.vercel.app/",
+  label: "Product site",
+  /** The landing page and APK are live; the backend is not currently running. */
+  status:
+    "The product site and Android APK are live. The backend is not currently running, so the app is not usable end to end.",
 } as const;
 
 export const nav = [

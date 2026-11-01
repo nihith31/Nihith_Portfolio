@@ -3,7 +3,7 @@ import { ArrowRight, Download } from "lucide-react";
 import { getAllCaseStudies } from "@/lib/content";
 import { FeatureCard } from "@/components/home/feature-card";
 import { FadeIn } from "@/components/ui/fade-in";
-import { site } from "@/lib/site";
+import { sakhi, site } from "@/lib/site";
 
 const credentials = [
   {
@@ -129,10 +129,17 @@ export default function HomePage() {
               Selected work
             </h2>
             <p className="mt-5 max-w-md leading-relaxed text-fg-muted">
-              Sakhi is an AI health companion for low-literacy women in rural
-              India. I ran it end to end — research, prioritisation,
-              specification and launch strategy. Each case study covers one part
-              of that.
+              <a
+                href={sakhi.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent underline underline-offset-4 transition-opacity hover:opacity-75"
+              >
+                Sakhi
+              </a>{" "}
+              is an AI health companion for low-literacy women in rural India. I
+              ran it end to end — research, prioritisation, specification and
+              launch strategy. Each case study covers one part of that.
             </p>
             <Link
               href="/work"
