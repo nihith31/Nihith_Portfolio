@@ -12,6 +12,7 @@ import {
 } from "@/lib/content";
 import { mdxComponents } from "@/components/case/mdx";
 import { Toc, TocMobile } from "@/components/case/toc";
+import { ReadingProgress } from "@/components/ui/reading-progress";
 
 export function generateStaticParams() {
   return getCaseStudySlugs().map((slug) => ({ slug }));
@@ -39,6 +40,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
 
   return (
     <div className="mx-auto w-full max-w-7xl px-5 pb-16 pt-8 sm:px-8 sm:pb-20 sm:pt-12 lg:px-12">
+      <ReadingProgress />
       <div className="xl:flex xl:gap-14">
       <article className="min-w-0 max-w-3xl">
       <Link

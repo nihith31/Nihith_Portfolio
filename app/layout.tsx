@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ViewTransition } from "react";
 import { Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
@@ -49,7 +50,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="flex min-h-full flex-col">
         <SiteNav />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1">
+          <ViewTransition>{children}</ViewTransition>
+        </main>
         <SiteFooter />
       </body>
     </html>
