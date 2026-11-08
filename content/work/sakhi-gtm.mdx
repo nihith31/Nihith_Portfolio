@@ -1,0 +1,202 @@
+---
+title: "Distribution for a user who has never opened the Play Store"
+subtitle: "Go-to-market, channel design and retention strategy for Sakhi — reaching women through the health workers they already trust, and funding it without charging them."
+summary: "An omnichannel GTM for a free product: ASHA worker partnerships, WhatsApp dark social, direct APK distribution, CSR funding, and five retention objections drawn from interviews."
+project: "Sakhi AI"
+discipline: "GTM & Launch"
+role: "Product Manager (end-to-end)"
+timeline: "24-week plan · 2025"
+order: 3
+featured: true
+skills: ["GTM strategy", "Channel design", "Positioning", "Retention", "Business model"]
+metrics:
+  - label: "Channel split"
+    value: "60 / 40"
+    note: "Owned digital against partnered community reach"
+  - label: "Capped panel price"
+    value: "₹299"
+    note: "Locked system-side so partners cannot inflate it"
+  - label: "Retention objections"
+    value: "5"
+    note: "From interviews, each mapped to a specific lever"
+---
+
+<Section eyebrow="The problem">
+
+## A perfect product nobody can find is not a product
+
+By the end of specification I had a defensible MVP: a voice-first PCOS companion in Hindi and English, offline symptom tracking, and a scope I could justify feature by feature.
+
+Then I asked how a woman in a village in Karimnagar would ever come to have it on her phone.
+
+Every assumption underneath normal app distribution fails for this user. She does not browse an app store. She shares a family Android phone that is in her husband's pocket until evening. Her data is metered and her storage is close to full. She has never installed anything that did not arrive through WhatsApp. And the subject matter is one she has never discussed aloud with anyone.
+
+<Pull>
+A free product still has an acquisition cost. For this user, that cost is paid in trust, and trust is not something an app store can transfer.
+</Pull>
+
+Distribution was not a step after the product. It was a design constraint of the same weight as literacy or connectivity.
+
+</Section>
+
+<Section eyebrow="Targeting">
+
+## There are two users, and only one of them has PCOS
+
+The decision that shaped everything else: I defined a **secondary target of trusted gatekeepers** alongside the primary user.
+
+**Primary** — low-literacy women aged 18 to 30 with PCOS or irregular cycles, in Tier 2/3 cities, villages and urban slums, in households under ₹15,000 a month.
+
+**Secondary** — ASHA workers, ANM nurses and Self-Help Group leaders. The frontline health influencers these women already go to.
+
+This is not a marketing channel in the ordinary sense. The ASHA worker is the one who installs the app, explains what it does, and vouches for it. In practice she is the first user of the product, and the woman with PCOS is the second.
+
+<Callout type="insight" title="Why that reframing mattered">
+Once the ASHA worker is a user, she needs a product. That produced the Sakhi Worker Toolkit, a guided onboarding interface for health workers running village gatherings — something that never would have appeared on a roadmap built only around the woman with PCOS.
+</Callout>
+
+## Positioning
+
+> For underprivileged and low-literacy Indian women struggling with PCOS in silence, Sakhi is the first fully free, voice-enabled health companion that speaks their language, decodes lab reports, and tracks cycles with visual simplicity — unlike English-only commercial apps, Sakhi acts as a trusted, non-judgmental elder sister who ensures no woman faces PCOS alone.
+
+</Section>
+
+<Section eyebrow="Channel design">
+
+## Omnichannel, 60 / 40
+
+I structured distribution as a hybrid **D2C plus B2B2C** model across three pillars, weighted 60% owned digital and 40% partnered community reach.
+
+| Pillar | Touchpoint | What it does |
+| --- | --- | --- |
+| Direct mobile (owned) | Lightweight Android APK and PWA on low-cost phones | 24/7 access to the AI companion, tracker, meal planner and lab reader, with offline caching |
+| Community partners (B2B2C) | ASHA workers, Anganwadi centres, SHGs, health NGOs | Grassroots onboarding, trust-building, assisted use for zero-literacy users, physical visual guides |
+| Diagnostic affiliates | Empanelled pathology labs and Primary Health Centres | Low-cost standardised blood panels, results synced back into the user's profile |
+
+<DecisionCard
+  decision="Distribute by direct APK download rather than through the Google Play Store"
+  rationale="Play Store installation assumes a Google account, sufficient storage, and the habit of searching an app store — none of which hold for this user. A single-tap APK link travels through WhatsApp, which is where she already receives everything."
+  tradeoff="No Play Store discovery, no automatic updates, and users must permit installation from unknown sources — a real friction point and a real security tradeoff. It also forfeits the credibility a store listing confers."
+/>
+
+## Why purely online fails here
+
+I considered an online-only launch and rejected it on four grounds:
+
+**Trust and stigma.** Reproductive health carries severe shame in these communities. Women do not download and confide in an unfamiliar app without endorsement from a trusted physical figure.
+
+**Connectivity.** Rural networks drop for long stretches. Offline caching handles the product side, but acquisition still needs a human touchpoint to bridge the gap.
+
+**PCOS is physically diagnosed.** It needs hormone panels and ultrasounds. An online-only platform strands the user exactly at the point where she needs a next step.
+
+**First-contact literacy.** The UI is built for zero literacy, but first exposure still needs a person sitting beside her.
+
+</Section>
+
+<Section eyebrow="The hard part">
+
+## Channel parity
+
+Adding offline partners creates a problem most channel strategies quietly ignore: a user's experience now depends on *how* she reached you. I specified parity across four dimensions, and two of them are the work I am most pleased with.
+
+<Grid cols="2">
+<Callout type="note" title="Unified identity">
+She might use an ASHA worker's tablet today, her own phone tomorrow, an NGO camp next week. A phone number or a visual QR ID binds all of it to one record, synced through the same offline-first queue.
+</Callout>
+<Callout type="note" title="AI knowledge parity">
+Every channel routes back to the same model and the same RAG medical guidelines. Advice spoken by a health worker from the audio toolkit is identical to advice read on a phone.
+</Callout>
+<Callout type="insight" title="Price parity — the one that protects her">
+The platform is free everywhere, and partner diagnostic pricing is locked system-side at a flat ₹299 for the full PCOS panel. Partners cannot inflate it locally.
+</Callout>
+<Callout type="insight" title="Tone parity">
+Partner health workers complete training on the Sakhi Compassionate Protocol, so the warm, stigma-free register is the same in a village meeting as it is in the app.
+</Callout>
+</Grid>
+
+The price cap is the one I would defend hardest. The moment you distribute through local intermediaries, you create an opportunity to overcharge a vulnerable user who has no way to check the going rate. Capping it in the system rather than in a partner agreement makes it an engineering guarantee instead of a promise.
+
+Tone parity matters for a related reason. The entire product rests on a woman not feeling judged. If she is treated with warmth by the app and with impatience by the health worker who introduced it, the product has failed — and that failure would never appear in a usage metric.
+
+</Section>
+
+<Section eyebrow="Launch plan">
+
+## Four phases over 24 weeks
+
+| Phase | Weeks | What happens |
+| --- | --- | --- |
+| Pre-launch readiness | −4 to 0 | Compile the APK and host it on a lightweight landing page. Partner with 3 regional health NGOs to train 50 pilot ASHA workers and 10 SHG federations. Produce 15 vernacular WhatsApp audio notes and 3 pictorial quick-start cards. |
+| Soft launch and pilot | 1 to 4 | Deploy in 2 districts — Karimnagar in Telangana and Mirzapur in UP. Weekly field check-ins with pilot users. Tune AI prompt adapters against real voice query logs to catch regional terms. |
+| Scale launch | 5 to 12 | Co-launch with partner NGOs during PCOS Awareness Month. Distribute voice notes and APK links across 500+ SHG WhatsApp groups. Pictorial QR posters at ration shops and Anganwadi centres. |
+| Expansion | 13 to 24 | Extend dialect coverage. Review 90-day retention and logging consistency. Present impact metrics to State Health Missions for inclusion in rural health worker training. |
+
+Two choices inside that plan are worth drawing out.
+
+**Launching in two districts in different states, not one.** Karimnagar is Telugu-speaking; Mirzapur is in the Hindi belt. Piloting both at once costs more coordination, but a product whose core premise is vernacular voice needs to prove itself in two languages before it scales, not after.
+
+**Timing the scale launch to PCOS Awareness Month.** Borrowed attention is free distribution, and for a stigmatised condition a public moment also gives a woman cover to ask about it.
+
+</Section>
+
+<Section eyebrow="Business model">
+
+## Free forever, funded by someone else
+
+The product cannot charge its users. They have no disposable income for apps, and a paywall at the moment of need would contradict everything in the research. So revenue has to come from somewhere other than the person being served.
+
+Funding comes from **CSR healthcare grants and public health foundations**, allocated roughly:
+
+<MetricGrid>
+<Metric value="40%" label="Field operations" note="Grassroots work and ASHA honorariums" />
+<Metric value="30%" label="Content production" note="WhatsApp audio and regional video" />
+<Metric value="20%" label="Cloud and AI" note="Model inference and database" />
+</MetricGrid>
+
+The remaining 10% covers printed visual collateral — posters and pictorial cards for ration shops and Anganwadi centres, which is the cheapest line in the budget and the one that reaches women who are not yet online at all.
+
+The endgame is institutional rather than commercial: getting Sakhi into State Health Mission toolkits, so distribution eventually runs through public health infrastructure instead of depending on grant renewals. That is also the honest weakness of the model, and I come back to it below.
+
+</Section>
+
+<Section eyebrow="Retention">
+
+## Why she would stop using it
+
+I ran interviews on a single question: why would you stop after three months? Five answers, each mapped to a lever.
+
+| What she said | Driver | Lever |
+| --- | --- | --- |
+| "My dates didn't become 100% regular in 90 days, so I thought the food advice stopped working." | Low perceived value | Set realistic 6–12 month clinical milestones up front |
+| "I feared that after 3 months the free trial would end and it would secretly start charging." | Trust and price fear | Permanent "100% free forever, CSR funded" badge in the UI |
+| "I got lazy to open the app once my chin hair and pimples stopped growing so fast." | Usage fatigue | Weekly WhatsApp audio nudges and automatic cycle triggers |
+| "I stopped when I couldn't understand why two numbers on my new blood test were still red." | Confusion | One-tap "ask Sakhi to explain the red markers" in the lab reader |
+| "I changed my phone and didn't know how to move my past cycle logs." | Confusion | One-tap phone number and visual QR account recovery |
+
+Three patterns ran underneath them.
+
+**Expectation versus clinical reality.** Users expect PCOS to be cured in 90 days. Lifestyle change takes six months or more to show results. The gap is not a product failure, but it causes drop-off all the same — which makes managing the expectation a product responsibility.
+
+**Paywall paranoia.** Several women assumed a free tool must be hiding a charge. Being genuinely free was not enough; the product had to keep saying so.
+
+**Early-relief drop-off.** The clearest signal in the set. Symptoms improve slightly, daily logging stops, the routine breaks, symptoms return. The most dangerous moment for retention is not when the product fails her — it is when it starts working.
+
+<Callout type="warning" title="What this changed">
+I had assumed retention risk sat with the women the product helped least. The interviews said the opposite. That is the kind of thing you only find by asking about stopping rather than asking about satisfaction.
+</Callout>
+
+</Section>
+
+<Section eyebrow="Reflection">
+
+## What I would do differently
+
+**I never tested the ASHA worker assumption.** The entire channel strategy rests on health workers adopting Sakhi and recommending it. I treated that as an assumption, documented it as one, and designed a toolkit for it — but I never sat with an ASHA worker and asked whether she would use it, or what she is already asked to carry. If that assumption is wrong, 40% of the channel plan collapses and the rest does not compensate. It should have been the first interview I ran, not one I never ran.
+
+**The funding model has a single point of failure.** CSR grants are renewable and discretionary. A product that is free forever but funded annually is only free until a committee changes its mind. The State Health Mission route is the real answer, and I treated it as a phase-four ambition rather than designing backwards from it.
+
+**I specified a ₹299 price cap without talking to a lab.** The mechanism is sound; the number is mine. Whether a diagnostic partner would accept it at pilot volumes is unknown, and the cap only protects users if partners actually sign.
+
+**APK distribution is a security posture, not just a channel.** Asking a first-time smartphone user to permit installation from unknown sources teaches a habit that makes her more vulnerable to everything else. I chose it for good reasons and I would choose it again, but I wrote it up as a convenience tradeoff when it is also a safety one.
+
+</Section>
