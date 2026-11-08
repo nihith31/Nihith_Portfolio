@@ -34,7 +34,8 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
   const headings = getHeadings(cs.body);
   const all = getAllCaseStudies();
   const idx = all.findIndex((c) => c.slug === slug);
-  const next = all[idx + 1] ?? all[0];
+  // No wrap-around: the last case study ends rather than looping to the first.
+  const next = all[idx + 1];
 
   return (
     <div className="mx-auto w-full max-w-7xl px-5 pb-16 pt-8 sm:px-8 sm:pb-20 sm:pt-12 lg:px-12">
@@ -110,20 +111,32 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
         />
       </div>
 
-      {next && next.slug !== cs.slug && (
-        <nav className="mt-16 border-t border-border pt-8">
-          <div className="font-mono text-xs uppercase tracking-widest text-fg-faint">
-            Next case study
-          </div>
+      {/* Whichever case study sorts last falls back to "All work". Adding one
+          turns this into a forward link automatically — nothing to update. */}
+      <nav className="mt-16 border-t border-border pt-8">
+        {next ? (
+          <>
+            <div className="font-mono text-xs uppercase tracking-widest text-fg-faint">
+              Next case study
+            </div>
+            <Link
+              href={`/work/${next.slug}`}
+              className="mt-2 block font-serif text-2xl leading-tight tracking-tight text-fg transition-colors hover:text-accent"
+            >
+              {next.title}
+            </Link>
+            <p className="mt-1 text-sm text-fg-muted">{next.subtitle}</p>
+          </>
+        ) : (
           <Link
-            href={`/work/${next.slug}`}
-            className="mt-2 block font-serif text-2xl leading-tight tracking-tight text-fg transition-colors hover:text-accent"
+            href="/work"
+            className="group inline-flex items-center gap-2 font-serif text-2xl leading-tight tracking-tight text-fg transition-colors hover:text-accent"
           >
-            {next.title}
+            <ArrowLeft className="size-5 transition-transform group-hover:-translate-x-0.5" />
+            All work
           </Link>
-          <p className="mt-1 text-sm text-fg-muted">{next.subtitle}</p>
-        </nav>
-      )}
+        )}
+      </nav>
       </article>
 
       <aside className="hidden xl:block xl:w-60 xl:shrink-0">
