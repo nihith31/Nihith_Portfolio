@@ -1,4 +1,5 @@
 import type { MDXComponents } from "mdx/types";
+import { nodeText, slugify } from "@/lib/slug";
 import {
   Callout,
   DecisionCard,
@@ -13,11 +14,14 @@ import { RiceTable, MoscowBoard } from "@/components/case/data-blocks";
 import { ArtifactFrame } from "@/components/case/artifact-frame";
 
 export const mdxComponents: MDXComponents = {
-  h2: (p) => (
+  h2: ({ children, ...rest }) => (
     <h2
-      className="mt-12 scroll-mt-24 font-serif text-[clamp(1.85rem,2.6vw,2.4rem)] leading-tight tracking-tight text-fg"
-      {...p}
-    />
+      id={slugify(nodeText(children))}
+      className="mt-12 scroll-mt-28 font-serif text-[clamp(1.85rem,2.6vw,2.4rem)] leading-tight tracking-tight text-fg"
+      {...rest}
+    >
+      {children}
+    </h2>
   ),
   h3: (p) => (
     <h3 className="mt-8 scroll-mt-24 font-serif text-[clamp(1.35rem,1.8vw,1.6rem)] leading-snug text-fg" {...p} />

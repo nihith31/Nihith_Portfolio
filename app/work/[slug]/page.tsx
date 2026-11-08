@@ -4,8 +4,14 @@ import type { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { ArrowLeft } from "lucide-react";
-import { getAllCaseStudies, getCaseStudy, getCaseStudySlugs } from "@/lib/content";
+import {
+  getAllCaseStudies,
+  getCaseStudy,
+  getCaseStudySlugs,
+  getHeadings,
+} from "@/lib/content";
 import { mdxComponents } from "@/components/case/mdx";
+import { Toc, TocMobile } from "@/components/case/toc";
 
 export function generateStaticParams() {
   return getCaseStudySlugs().map((slug) => ({ slug }));
@@ -25,12 +31,15 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
   const cs = getCaseStudy(slug);
   if (!cs) notFound();
 
+  const headings = getHeadings(cs.body);
   const all = getAllCaseStudies();
   const idx = all.findIndex((c) => c.slug === slug);
   const next = all[idx + 1] ?? all[0];
 
   return (
-    <article className="mx-auto max-w-3xl px-5 pb-16 pt-8 sm:px-6 sm:pb-20 sm:pt-12">
+    <div className="mx-auto w-full max-w-7xl px-5 pb-16 pt-8 sm:px-8 sm:pb-20 sm:pt-12 lg:px-12">
+      <div className="xl:flex xl:gap-14">
+      <article className="min-w-0 max-w-3xl">
       <Link
         href="/work"
         className="inline-flex items-center gap-1.5 text-sm text-fg-muted transition-colors hover:text-fg"
@@ -87,11 +96,17 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
         )}
       </header>
 
+      <TocMobile headings={headings} />
+
       <div className="mt-2">
         <MDXRemote
           source={cs.body}
           components={mdxComponents}
-          options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+          options={{
+            mdxOptions: {
+              remarkPlugins: [remarkGfm],
+            },
+          }}
         />
       </div>
 
@@ -109,6 +124,14 @@ export default async function CaseStudyPage({ params }: PageProps<"/work/[slug]"
           <p className="mt-1 text-sm text-fg-muted">{next.subtitle}</p>
         </nav>
       )}
-    </article>
+      </article>
+
+      <aside className="hidden xl:block xl:w-60 xl:shrink-0">
+        <div className="sticky top-28 max-h-[calc(100vh-9rem)] overflow-y-auto py-1">
+          <Toc headings={headings} />
+        </div>
+      </aside>
+      </div>
+    </div>
   );
 }

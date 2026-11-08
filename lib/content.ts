@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { slugify } from "@/lib/slug";
 
 const WORK_DIR = path.join(process.cwd(), "content", "work");
 
@@ -48,6 +49,40 @@ export function getCaseStudy(slug: string): CaseStudy | null {
     metrics: data.metrics ?? [],
     body: content,
   };
+}
+
+export type Heading = { id: string; text: string };
+
+/**
+ * Pulls the `##` headings out of MDX source for the table of contents.
+ * Slugs come from the shared slugify helper, which the h2 renderer also
+ * uses, so the ids match the rendered anchors. Fenced code blocks are skipped.
+ */
+export function getHeadings(body: string): Heading[] {
+  const out: Heading[] = [];
+  let inFence = false;
+
+  for (const line of body.split("\n")) {
+    if (/^\s*(```|~~~)/.test(line)) {
+      inFence = !inFence;
+      continue;
+    }
+    if (inFence) continue;
+
+    const m = /^##\s+(.+?)\s*$/.exec(line);
+    if (!m) continue;
+
+    // strip inline markdown so the TOC shows plain text
+    const text = m[1]
+      .replace(/`([^`]+)`/g, "$1")
+      .replace(/\*\*([^*]+)\*\*/g, "$1")
+      .replace(/\*([^*]+)\*/g, "$1")
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+      .trim();
+
+    out.push({ id: slugify(text), text });
+  }
+  return out;
 }
 
 export function getAllCaseStudies(): CaseStudy[] {
