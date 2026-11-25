@@ -12,41 +12,31 @@ export const metadata: Metadata = {
 
 const experience = [
   {
-    role: "Programmer Analyst · Automation Test Engineer",
+    role: "Programmer Analyst (promoted from Trainee, Sep 2025)",
     org: "Cognizant Technology Solutions",
     period: "Jul 2024 — present",
     bullets: [
-      "Joined as Programmer Analyst Trainee and progressed to Programmer Analyst in September 2025.",
-      "Collaborated with cross-functional Agile/Scrum teams to identify, prioritize, track, and resolve product defects.",
-      "Designed and executed functional and regression test scenarios, improving application reliability and release quality.",
-      "Translated business requirements and application workflows into structured test scenarios and acceptance criteria.",
-      "Leveraged AI-assisted tools and prompt engineering to accelerate test-case design and automation script development, improving testing efficiency by 80%.",
+      "Translated business requirements and policy-lifecycle workflows into structured acceptance criteria for critical product journeys, reducing clarification cycles with engineering during sprint delivery.",
+      "Proposed and rolled out an AI-assisted test-design workflow adopted across the team, cutting test-case creation time by 80% and freeing capacity for exploratory coverage.",
+      "Partnered with product owners and developers across Agile/Scrum ceremonies to triage and prioritize defects, influencing which issues shipped in-sprint versus moved to the backlog.",
+      "Built a reusable Selenium/Java/TestNG automation framework covering policy creation and lifecycle flows, reducing production bug leakage by 73%.",
     ],
   },
 ];
 
 const projects = [
   {
-    name: "Sakhi AI",
-    tag: "AI-powered PCOS health companion",
+    name: "SakhiAI",
+    tag: "AI-powered PCOS health companion for women",
     href: "/work",
     site: sakhi.url,
     bullets: [
-      "Ran discovery for an AI PCOS companion serving low-literacy women in rural India (~42M addressable). Empathy interviews and contextual inquiry surfaced the defining constraint: users share a family phone, have metered data, and have never installed an app outside WhatsApp — which drove a voice-first, offline-capable product.",
+      "Ran discovery for an AI PCOS companion serving low-literacy women in rural India (~42M addressable). Empathy interviews and contextual inquiry with 30 users surfaced the defining constraint: users share a family phone, have metered data, and have never installed an app outside WhatsApp — which drove a voice-first, offline-capable product.",
+      "Reminder testing with 20 users surfaced that notifications on a shared family phone risk disclosing the condition to family members, adding discreet-by-default reminders to MVP scope.",
       "Wrote the PRD and translated validated needs into 43 user stories across 6 modules with Given/When/Then acceptance criteria, scoping the MVP down to 2 modules.",
       "Scored features with RICE and modules with MoSCoW: deferred lab-report OCR (score 5.25, 8× the effort of the next feature) and cut four features outright — including gamification and community forums — on user-dignity and safety grounds.",
-      "Specified a Generative and Agentic AI MVP: multilingual voice chatbot in English, Hindi and Telugu, icon-based symptom tracking with offline sync, lab report analysis and regional meal planning.",
+      "Scoped the MVP to multilingual voice chat (English, Hindi, Telugu) and icon-based symptom tracking with offline sync, choosing voice and icons over text entry because 10 of 30 interviewed users could not reliably read app text.",
       "Designed go-to-market: a 60/40 owned-digital to community channel split through ASHA health workers and self-help groups, direct APK distribution over app-store listing, and a CSR-funded free-forever model with partner diagnostic pricing capped system-side.",
-    ],
-  },
-  {
-    name: "Insurance Policy Management Automation Framework",
-    tag: "Cognizant",
-    bullets: [
-      "Worked with insurance policy management workflows covering policy creation and policy lifecycle processes.",
-      "Analyzed business workflows and translated them into structured validation scenarios for critical product journeys.",
-      "Developed a reusable Selenium WebDriver automation framework using Java, TestNG, and Page Object Model (POM), enhancing release confidence and product quality while reducing production bug leakage by 73%.",
-      "Leveraged AI-assisted tools to accelerate test case design and automation development, improving testing efficiency by 80%.",
     ],
   },
 ];
@@ -58,17 +48,17 @@ const skillGroups = [
       "Product discovery, market research, product strategy, requirements analysis, prioritisation, product metrics",
   },
   {
+    group: "Agile & Project Management",
+    items:
+      "Agile/Scrum, sprint planning, backlog management, cross-functional collaboration, Jira",
+  },
+  {
     group: "AI & Generative AI",
     items:
       "Generative AI, Agentic AI, prompt engineering, AI-assisted prototype development",
   },
   {
-    group: "Agile & Delivery",
-    items:
-      "Agile/Scrum, sprint planning, backlog management, cross-functional collaboration, Jira",
-  },
-  {
-    group: "Engineering & Data",
+    group: "Testing & Quality",
     items: "SQL, Python, Java, Selenium WebDriver, TestNG, Git",
   },
 ];
@@ -131,36 +121,17 @@ export default function ResumePage() {
       {/* Summary */}
       <Section title="Summary">
         <p className="max-w-3xl text-[1.0625rem] leading-[1.8] text-fg-muted">
-          Technology professional with experience in software quality,
-          automation, Agile collaboration, and AI-assisted development. Skilled
-          in Java, Python, SQL, Jira, and cross-functional teamwork, with a
-          growing foundation in product discovery, requirements analysis, and
-          data-driven decision-making. Combines technical expertise with product
-          thinking to understand customer needs, support effective delivery, and
-          solve business problems.
+          Product-focused technologist who ran end-to-end discovery, PRD and
+          go-to-market for an AI health product serving low-literacy women in
+          rural India, backed by 1.5 years delivering enterprise software at
+          Cognizant. Combines hands-on depth in Java, Python and SQL with
+          prioritization frameworks, acceptance-criteria writing and Agile
+          delivery to turn validated user needs into shipped scope.
         </p>
       </Section>
 
-      {/* Experience */}
-      <Section title="Experience">
-        {experience.map((e) => (
-          <div key={e.role}>
-            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-              <h3 className="font-serif text-xl text-fg">{e.role}</h3>
-              <span className="font-mono text-xs text-fg-faint">{e.period}</span>
-            </div>
-            <div className="mt-0.5 text-sm text-accent">{e.org}</div>
-            <ul className="mt-4 space-y-2.5">
-              {e.bullets.map((b) => (
-                <Bullet key={b}>{b}</Bullet>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </Section>
-
-      {/* Projects */}
-      <Section title="Projects">
+      {/* Product experience */}
+      <Section title="Product experience">
         <div className="space-y-10">
           {projects.map((p) => (
             <div key={p.name}>
@@ -197,6 +168,24 @@ export default function ResumePage() {
             </div>
           ))}
         </div>
+      </Section>
+
+      {/* Professional experience */}
+      <Section title="Professional experience">
+        {experience.map((e) => (
+          <div key={e.role}>
+            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+              <h3 className="font-serif text-xl text-fg">{e.role}</h3>
+              <span className="font-mono text-xs text-fg-faint">{e.period}</span>
+            </div>
+            <div className="mt-0.5 text-sm text-accent">{e.org}</div>
+            <ul className="mt-4 space-y-2.5">
+              {e.bullets.map((b) => (
+                <Bullet key={b}>{b}</Bullet>
+              ))}
+            </ul>
+          </div>
+        ))}
       </Section>
 
       {/* Skills */}
