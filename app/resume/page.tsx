@@ -15,12 +15,12 @@ const experience = [
     role: "Programmer Analyst · Automation Test Engineer",
     org: "Cognizant Technology Solutions",
     period: "Jul 2024 — present",
-    note: "Joined as Programmer Analyst Trainee; progressed to Programmer Analyst / Automation Test Engineer in September 2025.",
     bullets: [
-      "Designed and executed functional and regression test scenarios for web applications, validating product workflows and improving release quality.",
-      "Translated application requirements and business workflows into structured test scenarios and acceptance-oriented validation.",
-      "Collaborated with developers and QA in an Agile/Scrum environment to identify, prioritise, track and resolve product defects.",
-      "Applied AI-assisted tooling and prompt engineering to accelerate test-case creation and automation script development.",
+      "Joined as Programmer Analyst Trainee and progressed to Programmer Analyst in September 2025.",
+      "Collaborated with cross-functional Agile/Scrum teams to identify, prioritize, track, and resolve product defects.",
+      "Designed and executed functional and regression test scenarios, improving application reliability and release quality.",
+      "Translated business requirements and application workflows into structured test scenarios and acceptance criteria.",
+      "Leveraged AI-assisted tools and prompt engineering to accelerate test-case design and automation script development, improving testing efficiency by 80%.",
     ],
   },
 ];
@@ -32,20 +32,21 @@ const projects = [
     href: "/work",
     site: sakhi.url,
     bullets: [
-      "Identified gaps in PCOS self-management for a potential user population of ~42 million Indian women; ran empathy interviews, built personas, and applied Design Thinking, SCAMPER and ERRC to prioritise needs.",
-      "Defined the CVP, target users, problem statement, solution and Lean Canvas to establish product strategy.",
-      "Wrote the PRD and translated validated needs into 43 prioritised user stories across the module set, defining MVP scope on user value, impact and feasibility.",
-      "Applied RICE at feature level and MoSCoW at module level to decide what entered the MVP — and documented four features cut outright, with reasoning.",
-      "Specified an MVP using Generative and Agentic AI: a multilingual PCOS chatbot across English, Hindi and Telugu, symptom tracking, lab report analysis and regional meal planning.",
+      "Ran discovery for an AI PCOS companion serving low-literacy women in rural India (~42M addressable). Empathy interviews and contextual inquiry surfaced the defining constraint: users share a family phone, have metered data, and have never installed an app outside WhatsApp — which drove a voice-first, offline-capable product.",
+      "Wrote the PRD and translated validated needs into 43 user stories across 6 modules with Given/When/Then acceptance criteria, scoping the MVP down to 2 modules.",
+      "Scored features with RICE and modules with MoSCoW: deferred lab-report OCR (score 5.25, 8× the effort of the next feature) and cut four features outright — including gamification and community forums — on user-dignity and safety grounds.",
+      "Specified a Generative and Agentic AI MVP: multilingual voice chatbot in English, Hindi and Telugu, icon-based symptom tracking with offline sync, lab report analysis and regional meal planning.",
+      "Designed go-to-market: a 60/40 owned-digital to community channel split through ASHA health workers and self-help groups, direct APK distribution over app-store listing, and a CSR-funded free-forever model with partner diagnostic pricing capped system-side.",
     ],
   },
   {
     name: "Insurance Policy Management Automation Framework",
     tag: "Cognizant",
     bullets: [
-      "Worked across policy lifecycle workflows covering policy creation, customer onboarding and renewals.",
-      "Analysed business workflows and translated them into structured validation scenarios for critical product journeys.",
-      "Built a reusable Selenium WebDriver framework in Java using TestNG and the Page Object Model, improving release confidence.",
+      "Worked with insurance policy management workflows covering policy creation and policy lifecycle processes.",
+      "Analyzed business workflows and translated them into structured validation scenarios for critical product journeys.",
+      "Developed a reusable Selenium WebDriver automation framework using Java, TestNG, and Page Object Model (POM), enhancing release confidence and product quality while reducing production bug leakage by 73%.",
+      "Leveraged AI-assisted tools to accelerate test case design and automation development, improving testing efficiency by 80%.",
     ],
   },
 ];
@@ -130,13 +131,13 @@ export default function ResumePage() {
       {/* Summary */}
       <Section title="Summary">
         <p className="max-w-3xl text-[1.0625rem] leading-[1.8] text-fg-muted">
-          Product-focused technologist with 18 months in software quality and
-          automation, where I translate business workflows into precise,
-          testable requirements. I ran an AI health product end to end — empathy
-          research, PRD, a 43-story backlog and launch strategy — and pair that
-          with an AI &amp; Data Science degree, so the technical constraints of
-          AI products are something I can scope against rather than discover
-          late.
+          Technology professional with experience in software quality,
+          automation, Agile collaboration, and AI-assisted development. Skilled
+          in Java, Python, SQL, Jira, and cross-functional teamwork, with a
+          growing foundation in product discovery, requirements analysis, and
+          data-driven decision-making. Combines technical expertise with product
+          thinking to understand customer needs, support effective delivery, and
+          solve business problems.
         </p>
       </Section>
 
@@ -149,7 +150,6 @@ export default function ResumePage() {
               <span className="font-mono text-xs text-fg-faint">{e.period}</span>
             </div>
             <div className="mt-0.5 text-sm text-accent">{e.org}</div>
-            <p className="mt-2 text-sm leading-relaxed text-fg-faint">{e.note}</p>
             <ul className="mt-4 space-y-2.5">
               {e.bullets.map((b) => (
                 <Bullet key={b}>{b}</Bullet>
